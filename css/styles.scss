@@ -1,0 +1,47 @@
+$blueDark: hsl(217, 19%, 35%);
+$blue: hsl(214, 17%, 51%);
+$blueLight: hsl(212, 23%, 69%);
+$white: hsl(210, 46%, 95%);
+
+@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700&display=swap");
+
+%flexbox {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+}
+@mixin align-items($value) {
+    -webkit-align-items: $value;
+    -ms-align-items: $value;
+    align-items: $value;
+}
+@mixin flex-wrap($value) {
+    -webkit-flex-wrap: $value;
+    -ms-flex-wrap: $value;
+    flex-wrap: $value;
+}
+@mixin flex-direction($value) {
+    -webkit-flex-direction: $value;
+    -ms-flex-direction: $value;
+    flex-direction: $value;
+}
+@mixin align-content($value) {
+    -webkit-align-content: $value;
+    -ms-align-content: $value;
+    align-content: $value;
+}
+@mixin justify-content($value) {
+    -webkit-justify-content: $value;
+    -ms-justify-content: $value;
+    justify-content: $value;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+}
+
