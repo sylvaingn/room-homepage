@@ -1,5 +1,5 @@
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700&display=swap");
-main .container #slideUp #share, main .container aside .flex #profil, main .container aside .flex, main .container, main {
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap");
+main #furniture, main .slider .slide .slide-text, main .slider .slide, #navbar #desktop-nav ul, #navbar #burger-wrap #mobile-nav ul, #navbar #burger-wrap, #navbar {
   display: -webkit-box;
   display: -ms-flexbox;
   display: -webkit-flex;
@@ -12,14 +12,52 @@ main .container #slideUp #share, main .container aside .flex #profil, main .cont
 
 body {
   margin: 0;
+  font-family: "Spartan", sans-serif;
+  overflow-x: hidden;
 }
 
-main {
-  font-family: "Manrope", sans-serif;
-  font-size: 13px;
-  color: #48556a;
-  height: 100vh;
-  background: #ecf2f8;
+a {
+  text-decoration: none;
+  font-weight: 600;
+  color: black;
+}
+
+li {
+  list-style: none;
+}
+
+ul {
+  padding: 0;
+}
+
+h2 {
+  font-weight: 600;
+  font-size: 25px;
+}
+
+h3 {
+  font-weight: 600;
+}
+
+p {
+  color: #a1a1a1;
+  font-size: 11px;
+  line-height: 20px;
+}
+
+p,
+li {
+  font-weight: 500;
+  font-size: 12px;
+}
+
+#navbar {
+  height: 110px;
+  width: 100vw;
+  background: transparent;
+  position: fixed;
+  top: 0;
+  z-index: 300;
   -webkit-justify-content: center;
   -ms-justify-content: center;
   justify-content: center;
@@ -27,133 +65,313 @@ main {
   -ms-align-items: center;
   align-items: center;
 }
-main .container {
-  width: 290px;
-  height: 450px;
-  background: white;
-  border-radius: 10px;
-  position: relative;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-}
-main .container #picture {
-  border-radius: 10px 0 0 10px;
-  height: 40%;
-  background: url(../img/drawers.jpg) center/cover no-repeat;
-}
-main .container aside {
-  height: 60%;
-  padding: 10px 25px 0;
-}
-main .container aside .flex {
-  height: 100%;
-  -webkit-flex-direction: column;
-  -ms-flex-direction: column;
-  flex-direction: column;
-  -webkit-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-}
-main .container aside .flex #profil {
-  -webkit-justify-content: space-between;
-  -ms-justify-content: space-between;
-  justify-content: space-between;
-  -webkit-align-items: center;
-  -ms-align-items: center;
-  align-items: center;
-}
-main .container aside .flex #profil #photo {
-  height: 40px;
-  width: 40px;
-  border-radius: 20px;
-  background: url(../img/avatar-michelle.jpg) center/cover no-repeat;
-}
-main .container aside .flex #profil #name {
-  width: calc(100% - 100px);
-}
-main .container aside .flex #profil #name span {
-  font-weight: 700;
-}
-main .container aside .flex #profil #arrow {
-  z-index: 500;
-  height: 30px;
-  width: 30px;
-  border-radius: 50%;
-  text-align: center;
-  background: #ecf2f8;
-  transition: all 1s ease-in-out;
-  padding: calc((30px - 15px) / 2) 0;
-}
-main .container aside .flex #profil #arrow path {
-  transition: all 1s ease-in-out;
-}
-main .container #slideUp {
-  padding: 0 25px;
-  height: 0px;
-  width: 100%;
-  background: #48556a;
-  color: #9eafc2;
+#navbar #burger {
   position: absolute;
-  bottom: 0;
-  transition: all 1s ease-in-out;
-  overflow: hidden;
+  top: calc(50% - 7px);
+  left: 25px;
+  height: 14px;
+  width: 20px;
+  background: url(../img/icon-hamburger.svg) center/cover no-repeat;
 }
-main .container #slideUp #share {
-  height: 100%;
+#navbar #opacity {
+  transition: opacity 0.5s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  position: fixed;
+  top: 0;
+  height: 100vh;
+  width: 100vw;
+  background: rgba(0, 0, 0, 0.583);
+}
+#navbar #burger-wrap {
+  -webkit-justify-content: center;
+  -ms-justify-content: center;
+  justify-content: center;
+  -webkit-align-items: center;
+  -ms-align-items: center;
+  align-items: center;
+  position: absolute;
+  top: 0;
+  height: 0px;
+  width: 100vw;
+  overflow: hidden;
+  background: white;
+  transition: all 1s ease-in-out;
+}
+#navbar #burger-wrap #cross {
+  position: absolute;
+  top: calc(50% - 8px);
+  left: 25px;
+  height: 16px;
+  width: 16px;
+  background: url(../img/icon-close.svg) center/cover no-repeat;
+}
+#navbar #burger-wrap #mobile-nav ul {
+  width: 100vw;
+  padding-left: 64px;
+  -webkit-justify-content: space-evenly;
+  -ms-justify-content: space-evenly;
+  justify-content: space-evenly;
   -webkit-align-items: center;
   -ms-align-items: center;
   align-items: center;
 }
-main .container #slideUp #share p {
-  text-transform: uppercase;
-  letter-spacing: 5px;
+#navbar img {
+  height: 20px;
 }
-main .container #slideUp #share img {
-  margin: 0 7px;
+#navbar #desktop-nav {
+  display: none;
+}
+#navbar #desktop-nav ul {
+  width: 250px;
+}
+
+main .slider {
+  position: relative;
+}
+main .slider .slick-slide img {
+  display: inline;
+}
+main .slider .slick-arrow {
+  position: absolute;
+  top: calc(55vh - 56px);
+  right: 0;
+  height: 56px;
+  width: 56px;
+  border: none;
+  color: transparent;
+  cursor: pointer;
+}
+main .slider .slick-prev {
+  z-index: 400;
+  right: 56px;
+  background: url(../img/icon-angle-left.svg) center/8px no-repeat, black;
+}
+main .slider .slick-next {
+  background: url(../img/icon-angle-right.svg) center/8px no-repeat, black;
+}
+main .slider .slick-prev:hover {
+  background: url(../img/icon-angle-left.svg) center/8px no-repeat, #a1a1a1;
+}
+main .slider .slick-next:hover {
+  background: url(../img/icon-angle-right.svg) center/8px no-repeat, #a1a1a1;
+}
+main .slider .slide {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+main .slider .slide .image {
+  height: 55vh;
+  width: 100%;
+}
+main .slider .slide .slide-text {
+  height: 60vh;
+  width: 100%;
+  padding: 55px 25px;
+  -webkit-flex-direction: column;
+  -ms-flex-direction: column;
+  flex-direction: column;
+  -webkit-justify-content: space-between;
+  -ms-justify-content: space-between;
+  justify-content: space-between;
+}
+main .slider .slide .slide-text > p {
+  cursor: pointer;
+  margin: 0;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 12px;
+  color: black;
+}
+main .slider .slide .slide-text > p svg {
+  margin-left: 25px;
+}
+main .slider .slide .slide-text > p:hover {
+  color: #a1a1a1;
+}
+main .slider .slide .slide-text > p:hover path {
+  fill: #a1a1a1;
+}
+main .slider #first-slide .image {
+  background: url(../img/mobile-image-hero-1.jpg) center/cover no-repeat;
+}
+main .slider #second-slide .image {
+  background: url(../img/mobile-image-hero-2.jpg) center/cover no-repeat;
+}
+main .slider #third-slide .image {
+  background: url(../img/mobile-image-hero-3.jpg) center/cover no-repeat;
+}
+main #furniture {
+  -webkit-flex-wrap: wrap;
+  -ms-flex-wrap: wrap;
+  flex-wrap: wrap;
+}
+main #furniture #black-chair {
+  height: 35vh;
+  width: 100%;
+  background: url(../img/image-about-dark.jpg) center/cover no-repeat;
+}
+main #furniture #about {
+  width: 100%;
+  padding: 40px 25px;
+}
+main #furniture #about h3 {
+  letter-spacing: 5px;
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+}
+main #furniture #white-chair {
+  height: 35vh;
+  width: 100%;
+  background: url(../img/image-about-light.jpg) center/cover no-repeat;
 }
 
 @media (min-width: 48em) {
-  main .container {
-    width: 600px;
-    height: 250px;
-    -webkit-flex-direction: row;
-    -ms-flex-direction: row;
-    flex-direction: row;
+  a {
+    color: white;
+    font-weight: 500;
   }
-  main .container #picture {
-    height: 100%;
-    width: 40%;
-    background: url(../img/drawers.jpg) center/cover no-repeat;
+
+  h2 {
+    font-size: 23px;
   }
-  main .container aside {
-    width: 60%;
-    height: 100%;
-    padding: 10px 25px;
+
+  p {
+    font-size: 10px;
   }
-  main .container #slideUp {
-    width: 250px;
-    position: absolute;
-    right: -70px;
-    bottom: 75px;
-    border-radius: 10px;
-    transition: all 1s ease-in-out;
-  }
-  main .container #slideUp #share {
-    height: 100%;
+
+  #navbar {
+    height: 140px;
+    width: 100vw;
+    -webkit-justify-content: start;
+    -ms-justify-content: start;
+    justify-content: start;
     -webkit-align-items: center;
     -ms-align-items: center;
     align-items: center;
-    -webkit-justify-content: center;
-    -ms-justify-content: center;
-    justify-content: center;
   }
-  main .container #slideUp #share p {
-    text-transform: uppercase;
+  #navbar #burger {
+    display: none;
+  }
+  #navbar img {
+    height: 13px;
+    margin: 0 60px;
+  }
+  #navbar #desktop-nav {
+    display: inline;
+  }
+  #navbar #desktop-nav ul {
+    -webkit-justify-content: space-evenly;
+    -ms-justify-content: space-evenly;
+    justify-content: space-evenly;
+    -webkit-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+  }
+  #navbar #desktop-nav ul a:hover {
+    border-bottom: 3px solid white;
+  }
+
+  main .slider .slick-arrow {
+    position: absolute;
+    top: calc(65vh - 60px);
+    height: 60px;
+    width: 60px;
+    border: none;
+    color: transparent;
+    cursor: pointer;
+  }
+  main .slider .slick-prev {
+    z-index: 400;
+    right: calc(40% - 60px);
+    background: url(../img/icon-angle-left.svg) center/12px no-repeat, black;
+  }
+  main .slider .slick-next {
+    right: calc(40% - 120px);
+    background: url(../img/icon-angle-right.svg) center/12px no-repeat, black;
+  }
+  main .slider .slide {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  main .slider .slide .image {
+    height: 65vh;
+    width: 60%;
+  }
+  main .slider .slide .slide-text {
+    height: 65vh;
+    width: 40%;
+    padding: 55px 25px 75px;
+  }
+  main .slider #first-slide .image {
+    background: url(../img/desktop-image-hero-1.jpg) center/cover no-repeat;
+  }
+  main .slider #second-slide .image {
+    background: url(../img/desktop-image-hero-2.jpg) center/cover no-repeat;
+  }
+  main .slider #third-slide .image {
+    background: url(../img/desktop-image-hero-3.jpg) center/cover no-repeat;
+  }
+  main #furniture {
+    -webkit-flex-wrap: nowrap;
+    -ms-flex-wrap: nowrap;
+    flex-wrap: nowrap;
+  }
+  main #furniture #black-chair {
+    height: 35vh;
+    width: 30vw;
+    background: url(../img/image-about-dark.jpg) center/cover no-repeat;
+  }
+  main #furniture #about {
+    height: 35vh;
+    width: 40vw;
+    padding: calc((35vh - 135px) / 2) 25px;
+  }
+  main #furniture #about h3 {
     letter-spacing: 5px;
+    font-size: 11px;
+    font-weight: 700;
+    text-transform: uppercase;
   }
-  main .container #slideUp #share img {
-    margin: 0 7px;
+  main #furniture #white-chair {
+    height: 35vh;
+    width: 30vw;
+    background: url(../img/image-about-light.jpg) center/cover no-repeat;
+  }
+}
+@media (min-width: 1440px) {
+  a {
+    color: white;
+    font-weight: 500;
+  }
+
+  h2 {
+    font-size: 34px;
+  }
+
+  main .slider .slick-arrow {
+    position: absolute;
+    top: calc(65vh - 80px);
+    height: 80px;
+    width: 80px;
+  }
+  main .slider .slick-prev {
+    z-index: 400;
+    right: calc(40vw - 80px);
+    background: url(../img/icon-angle-left.svg) center/12px no-repeat, black;
+  }
+  main .slider .slick-next {
+    right: calc(40vw - 160px);
+    background: url(../img/icon-angle-right.svg) center/12px no-repeat, black;
+  }
+  main .slider .slide .slide-text {
+    padding: 120px 100px 150px;
+  }
+  main #furniture #about {
+    padding: 70px 45px;
   }
 }
 

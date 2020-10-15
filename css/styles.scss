@@ -1,9 +1,9 @@
-$blueDark: hsl(217, 19%, 35%);
-$blue: hsl(214, 17%, 51%);
-$blueLight: hsl(212, 23%, 69%);
-$white: hsl(210, 46%, 95%);
+$darkGray: hsl(0, 0%, 63%);
+$black: hsl(0, 0%, 0%);
+$white: hsl(0, 0%, 100%);
+$veryDarkGray: hsl(0, 0%, 27%);
 
-@import url("https://fonts.googleapis.com/css2?family=Manrope:wght@300;500;700&display=swap");
+@import url("https://fonts.googleapis.com/css2?family=Spartan:wght@500;600;700&display=swap");
 
 %flexbox {
     display: -webkit-box;
@@ -43,5 +43,382 @@ $white: hsl(210, 46%, 95%);
 
 body {
     margin: 0;
+    font-family: "Spartan", sans-serif;
+    overflow-x: hidden;
 }
 
+a {
+    text-decoration: none;
+    font-weight: 600;
+    color: $black;
+}
+
+li {
+    list-style: none;
+}
+ul {
+    padding: 0;
+}
+
+h2 {
+    font-weight: 600;
+    font-size: 25px;
+}
+h3 {
+    font-weight: 600;
+}
+
+p {
+    color: $darkGray;
+    font-size: 11px;
+    line-height: 20px;
+}
+
+p,
+li {
+    font-weight: 500;
+    font-size: 12px;
+}
+
+#navbar {
+    height: 110px;
+    width: 100vw;
+    background: transparent;
+    position: fixed;
+    top: 0;
+    z-index: 300;
+    @extend %flexbox;
+    @include justify-content(center);
+    @include align-items(center);
+    #burger {
+        position: absolute;
+        top: calc(50% - 7px);
+        left: 25px;
+        height: 14px;
+        width: 20px;
+        background: url(../img/icon-hamburger.svg) center / cover no-repeat;
+    }
+    #opacity {
+        transition: opacity 0.5s ease-in-out;
+        opacity: 0;
+        visibility: hidden;
+        position: fixed;
+        top: 0;
+        height: 100vh;
+        width: 100vw;
+        background: rgba(0, 0, 0, 0.583);
+    }
+    #burger-wrap {
+        @extend %flexbox;
+        @include justify-content(center);
+        @include align-items(center);
+        position: absolute;
+        top: 0;
+        height: 0px;
+        // height: 110px;
+        width: 100vw;
+        overflow: hidden;
+        background: $white;
+        transition: all 1s ease-in-out;
+        #cross {
+            position: absolute;
+            top: calc(50% - 8px);
+            left: 25px;
+            height: 16px;
+            width: 16px;
+            background: url(../img/icon-close.svg) center / cover no-repeat;
+        }
+        #mobile-nav {
+            ul {
+                width: 100vw;
+                padding-left: 64px;
+                @extend %flexbox;
+                @include justify-content(space-evenly);
+                @include align-items(center);
+            }
+        }
+    }
+
+    img {
+        height: 20px;
+    }
+    #desktop-nav {
+        display: none;
+        // width: 100vw;
+        ul {
+            width: 250px;
+            @extend %flexbox;
+        }
+    }
+}
+
+main {
+    .slider {
+        position: relative;
+
+        .slick-slide {
+            img {
+                display: inline;
+            }
+        }
+        .slick-arrow {
+            position: absolute;
+            top: calc(55vh - 56px);
+            right: 0;
+            height: 56px;
+            width: 56px;
+            border: none;
+            color: transparent;
+            cursor: pointer;
+        }
+        .slick-prev {
+            z-index: 400;
+            right: 56px;
+            background: url(../img/icon-angle-left.svg) center / 8px no-repeat, $black;
+        }
+        .slick-next {
+            background: url(../img/icon-angle-right.svg) center / 8px no-repeat, $black;
+        }
+        .slick-prev:hover {
+            background: url(../img/icon-angle-left.svg) center / 8px no-repeat, $darkGray;
+        }
+        .slick-next:hover {
+            background: url(../img/icon-angle-right.svg) center / 8px no-repeat, $darkGray;
+        }
+
+        .slide {
+            @extend %flexbox;
+            @include flex-wrap(wrap);
+            .image {
+                height: 55vh;
+                width: 100%;
+            }
+            .slide-text {
+                height: 60vh;
+                width: 100%;
+                padding: 55px 25px;
+                @extend %flexbox;
+                @include flex-direction(column);
+                @include justify-content(space-between);
+                > p {
+                    cursor: pointer;
+                    margin: 0;
+                    font-weight: 600;
+                    text-transform: uppercase;
+                    letter-spacing: 12px;
+                    color: $black;
+                    svg {
+                        margin-left: 25px;
+                    }
+                }
+                > p:hover {
+                    color: $darkGray;
+                    path {
+                        fill: $darkGray;
+                    }
+                }
+            }
+        }
+        #first-slide {
+            // display: none;
+
+            .image {
+                background: url(../img/mobile-image-hero-1.jpg) center / cover no-repeat;
+            }
+        }
+        #second-slide {
+            // display: none;
+            .image {
+                background: url(../img/mobile-image-hero-2.jpg) center / cover no-repeat;
+            }
+        }
+        #third-slide {
+            // display: none;
+            .image {
+                background: url(../img/mobile-image-hero-3.jpg) center / cover no-repeat;
+            }
+        }
+    }
+    #furniture {
+        @extend %flexbox;
+        @include flex-wrap(wrap);
+        #black-chair {
+            height: 35vh;
+            width: 100%;
+            background: url(../img/image-about-dark.jpg) center / cover no-repeat;
+        }
+        #about {
+            width: 100%;
+            padding: 40px 25px;
+            h3 {
+                letter-spacing: 5px;
+                font-size: 11px;
+                font-weight: 700;
+                text-transform: uppercase;
+            }
+        }
+        #white-chair {
+            height: 35vh;
+            width: 100%;
+            background: url(../img/image-about-light.jpg) center / cover no-repeat;
+        }
+    }
+}
+
+@media (min-width: 48em) {
+    a {
+        color: $white;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 23px;
+    }
+
+    p {
+        font-size: 10px;
+    }
+
+    #navbar {
+        height: 140px;
+        width: 100vw;
+        @extend %flexbox;
+        @include justify-content(start);
+        @include align-items(center);
+        #burger {
+            display: none;
+        }
+        img {
+            height: 13px;
+            margin: 0 60px;
+        }
+        #desktop-nav {
+            display: inline;
+            ul {
+                @include justify-content(space-evenly);
+                @include align-items(center);
+                a:hover {
+                    border-bottom: 3px solid white;
+                }
+            }
+        }
+    }
+
+    main {
+        .slider {
+            .slick-arrow {
+                position: absolute;
+                top: calc(65vh - 60px);
+                height: 60px;
+                width: 60px;
+                border: none;
+                color: transparent;
+                cursor: pointer;
+            }
+            .slick-prev {
+                z-index: 400;
+                right: calc(40% - 60px);
+                background: url(../img/icon-angle-left.svg) center / 12px no-repeat, $black;
+            }
+            .slick-next {
+                right: calc(40% - 120px);
+                background: url(../img/icon-angle-right.svg) center / 12px no-repeat, $black;
+            }
+
+            .slide {
+                @extend %flexbox;
+                @include flex-wrap(nowrap);
+                .image {
+                    height: 65vh;
+                    width: 60%;
+                }
+                .slide-text {
+                    height: 65vh;
+                    width: 40%;
+                    padding: 55px 25px 75px;
+                }
+            }
+            #first-slide {
+                .image {
+                    background: url(../img/desktop-image-hero-1.jpg) center / cover no-repeat;
+                }
+            }
+            #second-slide {
+                .image {
+                    background: url(../img/desktop-image-hero-2.jpg) center / cover no-repeat;
+                }
+            }
+            #third-slide {
+                .image {
+                    background: url(../img/desktop-image-hero-3.jpg) center / cover no-repeat;
+                }
+            }
+        }
+        #furniture {
+            @include flex-wrap(nowrap);
+            #black-chair {
+                height: 35vh;
+                width: 30vw;
+                background: url(../img/image-about-dark.jpg) center / cover no-repeat;
+            }
+            #about {
+                height: 35vh;
+                width: 40vw;
+                padding: calc((35vh - 135px) / 2) 25px;
+                h3 {
+                    letter-spacing: 5px;
+                    font-size: 11px;
+                    font-weight: 700;
+                    text-transform: uppercase;
+                }
+            }
+            #white-chair {
+                height: 35vh;
+                width: 30vw;
+                background: url(../img/image-about-light.jpg) center / cover no-repeat;
+            }
+        }
+    }
+}
+
+@media (min-width: 1440px) {
+    a {
+        color: $white;
+        font-weight: 500;
+    }
+
+    h2 {
+        font-size: 34px;
+    }
+
+    main {
+        .slider {
+            .slick-arrow {
+                position: absolute;
+                top: calc(65vh - 80px);
+                height: 80px;
+                width: 80px;
+            }
+            .slick-prev {
+                z-index: 400;
+                right: calc(40vw - 80px);
+                background: url(../img/icon-angle-left.svg) center / 12px no-repeat, $black;
+            }
+            .slick-next {
+                right: calc(40vw - 160px);
+                background: url(../img/icon-angle-right.svg) center / 12px no-repeat, $black;
+            }
+
+            .slide {
+                .slide-text {
+                    padding: 120px 100px 150px;
+                }
+            }
+        }
+        #furniture {
+            #about {
+                padding: 70px 45px;
+            }
+        }
+    }
+}
